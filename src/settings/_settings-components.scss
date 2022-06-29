@@ -8,12 +8,13 @@ Component settings
 $accordion-button-background-color-default: 'gray-100' !default;
 $accordion-button-background-color-hover: 'gray-200' !default;
 $accordion-button-open-border: 20 !default;
-$accordion-button-open-background-color: 'gray-200' !default; 
+$accordion-button-open-background-color: 'gray-200' !default;
 $accordion-button-icon-size: 5 !default;
-$accordion-button-open-icon: "add.svg" !default;
-$accordion-button-closed-icon: "remove.svg" !default;
+$accordion-button-open-icon: 'add.svg' !default;
+$accordion-button-closed-icon: 'remove.svg' !default;
 $accordion-button-border-radius: $theme-border-radius !default;
-$accordion-button-open-border-radius: $theme-border-radius $theme-border-radius 0 0  !default;
+$accordion-button-open-border-radius: $theme-border-radius $theme-border-radius
+  0 0 !default;
 $accordion-button-color-default: 'black' !default;
 $accordion-button-color-hover: 'black' !default;
 $accordion-button-error-border-width: 2px !default;
@@ -32,7 +33,7 @@ $alert-success-border-color: 'success' !default;
 $alert-warning-border-color: 'warning' !default;
 $alert-error-border-color: 'error' !default;
 $alert-info-border-color: 'info' !default;
-$alert-border-color: "gray-400" !default;
+$alert-border-color: 'gray-400' !default;
 $alert-background-color: 'gray-100' !default;
 $alert-padding: 4 !default;
 $alert-border-size: 3 !default;
@@ -44,7 +45,7 @@ $alert-heading-color: $alert-text-color !default;
 $alert-close-text-color: $alert-text-color !default;
 
 // Badge
-$badge-font-weight: "semibold" !default;
+$badge-font-weight: 'semibold' !default;
 $badge-default-text-color: 'white' !default;
 $badge-default-background-color: 'black' !default;
 $badge-small-font-size: $typography-small-text-font-size !default;
@@ -158,11 +159,11 @@ $cookie-message-text-color: 'black' !default;
 $datepicker-background-color: 'white' !default;
 $datepicker-header-background-color: 'gray-100' !default;
 $datepicker-header-text-color: 'black' !default;
-$datepicker-icon-previous-year: "chevron-double-left" !default;
-$datepicker-icon-next-year: "chevron-double-right" !default;
-$datepicker-icon-previous-month: "chevron-left" !default;
-$datepicker-icon-next-month: "chevron-right" !default;
-$datepicker-button-icon: "insert-invitation" !default;
+$datepicker-icon-previous-year: 'chevron-double-left' !default;
+$datepicker-icon-next-year: 'chevron-double-right' !default;
+$datepicker-icon-previous-month: 'chevron-left' !default;
+$datepicker-icon-next-month: 'chevron-right' !default;
+$datepicker-button-icon: 'insert-invitation' !default;
 $datepicker-previous-next-month-background-color: 'gray-100' !default;
 $datepicker-previous-next-month-background-color-hover: 'gray-200' !default;
 $datepicker-previous-next-month-text-color: 'black' !default;
@@ -177,8 +178,8 @@ $datepicker-month-selected-text-color: 'ink' !default;
 $datepicker-year-selected-text-color: 'ink' !default;
 
 // Detail
-$details-button-closed-icon: "arrow-right.svg" !default;
-$details-button-open-icon: "arrow-drop-down.svg" !default;
+$details-button-closed-icon: 'arrow-right.svg' !default;
+$details-button-open-icon: 'arrow-drop-down.svg' !default;
 $details-panel-border-width: 4px;
 $details-panel-border-color: 'gray-300' !default;
 
@@ -291,10 +292,10 @@ $navigation-link-current-background-color: $navigation-link-default-background-c
 $navigation-overflow-menu-open-background-color: 'white' !default;
 $navigation-overflow-menu-open-background-color-desktop: 'gray-600' !default;
 $navigation-overflow-menu-open-text-color: 'white' !default;
-$navigation-overflow-menu-collapsed-icon: "add" !default;
-$navigation-overflow-menu-collapsed-icon-desktop: "expand-more";
-$navigation-overflow-menu-expanded-icon: "remove";
-$navigation-overflow-menu-expanded-icon-desktop: "expand-more-white";
+$navigation-overflow-menu-collapsed-icon: 'add' !default;
+$navigation-overflow-menu-collapsed-icon-desktop: 'expand-more';
+$navigation-overflow-menu-expanded-icon: 'remove';
+$navigation-overflow-menu-expanded-icon-desktop: 'expand-more-white';
 
 // Overflow Menu
 $overflow-menu-arrow-size: 8px;
@@ -321,7 +322,7 @@ $pagination-current-page-color: 'white' !default;
 $sidenav-border: 10 !default;
 $sidenav-link-default-color: 'ink' !default;
 $sidenav-link-hover-color: $sidenav-link-default-color !default;
-$sidenav-link-active-color: $sidenav-link-default-color !default; 
+$sidenav-link-active-color: $sidenav-link-default-color !default;
 $sidenav-link-current-color: $sidenav-link-default-color !default;
 $sidenav-link-disabled-color: 'disabled' !default;
 $sidenav-link-hover-background-color: 'gray-100' !default;
@@ -338,7 +339,7 @@ $nav-responsive-breakpoint: lg !default;
 
 // Table
 $table-head-background-color: 'gray-100' !default;
-$table-head-font-weight: "semibold" !default;
+$table-head-font-weight: 'semibold' !default;
 $table-border: 10 !default;
 $table-row-border: 20 !default;
 $table-cell-border: $table-row-border !default;
@@ -361,7 +362,7 @@ $tavnav-button-text-color: 'black' !default;
 // Tags
 $tag-border-radius: $button-border-radius !default;
 $tag-font-size: $typography-body-text-font-size !default;
-$tag-font-weight: "medium" !default;
+$tag-font-weight: 'medium' !default;
 $tag-text-color: 'white' !default;
 $tag-default-background-color: 'gray-600' !default;
 $tag-hover-background-color: 'gray-500' !default;
@@ -390,8 +391,8 @@ $toast-shadow: 'medium' !default;
 $toggle-default-background-color: 'gray-400' !default;
 $toggle-hover-background-color: 'gray-500' !default;
 $toggle-active-background-color: 'gray-600' !default;
-$toggle-text-on: "Til" !default;
-$toggle-text-off: "Fra" !default;
+$toggle-text-on: 'Til' !default;
+$toggle-text-off: 'Fra' !default;
 $toggle-shadow: 'light' !default;
 $toggle-button-background-color: 'white' !default;
 $toggle-button-on-default-background-color: 'primary' !default;

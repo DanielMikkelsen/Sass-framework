@@ -2,10 +2,12 @@
 $positions: static, relative, absolute, fixed, sticky;
 
 $zindex-sticky: 1020 !default;
-$zindex-fixed:  1030 !default;
+$zindex-fixed: 1030 !default;
 
 @each $position in $positions {
-  .position-#{$position} { position: $position !important; }
+  .position-#{$position} {
+    position: $position !important;
+  }
 }
 
 // Shorthand

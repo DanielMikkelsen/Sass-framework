@@ -1,6 +1,5 @@
 /* stylelint-disable */
-@import "mixins/grid-mixins";
-
+@import 'mixins/grid-mixins';
 
 // basic container
 .container {
@@ -8,10 +7,9 @@
   @include grid-container-max-widths();
 }
 
-.container[class*='w-']{
+.container[class*='w-'] {
   max-width: inherit !important; //undo max-width
 }
-
 
 // basic row...
 .row {
@@ -21,20 +19,20 @@
   &.no-gutters {
     margin-right: 0;
     margin-left: 0;
-  
+
     > .col,
-    > [class*="col-"] {
+    > [class*='col-'] {
       padding-right: 0;
       padding-left: 0;
     }
-  }  
+  }
 
-  &.row-bordered{
+  &.row-bordered {
     border-top: border(20);
     padding-top: units(4);
     padding-bottom: units(4);
     line-height: units(5, 'rem');
-    &:last-of-type{
+    &:last-of-type {
       border-bottom: border(20);
     }
   }
@@ -94,10 +92,11 @@
   }
 }
 
-
 // basic offsets
-@for $i from 0 through ($grid-columns - 1) { //-1 to prevent offset-12
-  @if not ($i == 0) { // Avoid emitting useless .offset-0
+@for $i from 0 through ($grid-columns - 1) {
+  //-1 to prevent offset-12
+  @if not($i == 0) {
+    // Avoid emitting useless .offset-0
     .offset-#{$i} {
       @include grid-offset($i, $grid-columns);
     }
@@ -107,8 +106,10 @@
 @each $breakpoint in map-keys($grid-breakpoints) {
   $mq-key: breakpoint-infix($breakpoint, $grid-breakpoints);
   @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-    @for $i from 0 through ($grid-columns - 1) { //-1 to prevent offset-12
-      @if not ($mq-key == "" and $i == 0) { // Avoid emitting useless .offset-0
+    @for $i from 0 through ($grid-columns - 1) {
+      //-1 to prevent offset-12
+      @if not($mq-key == '' and $i == 0) {
+        // Avoid emitting useless .offset-0
         .offset#{$mq-key}-#{$i} {
           @include grid-offset($i, $grid-columns);
         }

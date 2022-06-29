@@ -1,66 +1,73 @@
 // Header navigation ------------- //
 
 @mixin nav-current-border {
-  border-bottom: $navigation-link-default-border-width solid color($navigation-link-current-border-color);
+  border-bottom: $navigation-link-default-border-width solid
+    color($navigation-link-current-border-color);
 }
 @mixin nav-hover-border {
-  border-bottom: $navigation-link-default-border-width solid color($navigation-link-hover-border-color);
+  border-bottom: $navigation-link-default-border-width solid
+    color($navigation-link-hover-border-color);
 }
 @mixin nav-focus-border {
-  border-bottom: $navigation-link-default-border-width solid color($navigation-link-focus-border-color);
+  border-bottom: $navigation-link-default-border-width solid
+    color($navigation-link-focus-border-color);
 }
 @mixin nav-link-border {
-  border-bottom: $navigation-link-default-border-width solid color($navigation-link-default-border-color);
+  border-bottom: $navigation-link-default-border-width solid
+    color($navigation-link-default-border-color);
 }
 
 @mixin nav-link {
- 
 }
 
 .mobile_nav-active {
   overflow: hidden;
 }
 
-.mobile_nav-active{
-  .nav{
-      .nav-actions{
-        //overflow menu (the ones not in nav-primary)
-        .overflow-menu{
+.mobile_nav-active {
+  .nav {
+    .nav-actions {
+      //overflow menu (the ones not in nav-primary)
+      .overflow-menu {
+        width: 100%;
+        .button-overflow-menu {
           width: 100%;
-          .button-overflow-menu{
-            width: 100%;
-            justify-content: flex-start;
+          justify-content: flex-start;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: units(4);
+          padding-bottom: units(4);
+          &[aria-expanded='true']:after,
+          &[aria-expanded='true']:before,
+          &:after,
+          &:before {
+            display: none;
+          }
+        }
+        .overflow-menu-inner {
+          position: static;
+          border: none;
+          box-shadow: none;
+          min-width: inherit;
+          margin-top: 0;
+          padding-top: 0px;
+          .overflow-list {
+            padding-left: units(4);
+          }
+          a,
+          button {
+            text-align: left;
             padding-left: 0;
             padding-right: 0;
-            padding-top: units(4);
-            padding-bottom: units(4);
-            &[aria-expanded=true]:after, &[aria-expanded=true]:before, &:after, &:before{
-              display: none;
-            }
-          }
-          .overflow-menu-inner{
-            position: static;
-            border: none;
-            box-shadow:  none;
-            min-width: inherit;
-            margin-top: 0;
-            padding-top: 0px;
-            .overflow-list{
-              padding-left: units(4);
-            }
-            a, button{
-              text-align: left;
-              padding-left: 0;
-              padding-right: 0;
-              padding-top: units(3);
-              padding-bottom: units(3);
-              &:hover{
-                background-color: transparent;
-              }
+            padding-top: units(3);
+            padding-bottom: units(3);
+            &:hover {
+              background-color: transparent;
             }
           }
         }
       }
+    }
   }
 }
 
@@ -74,12 +81,12 @@
     flex-direction: row;
   }
 
-  .helptext{
+  .helptext {
     color: color($navigation-link-information-text-color);
-    font-weight: font-weight("normal");
+    font-weight: font-weight('normal');
   }
 
-  .navbar-inner{
+  .navbar-inner {
     border-bottom: border(20);
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
       border-bottom: none;
@@ -87,9 +94,7 @@
   }
 }
 
-
-
-.navbar-context-actions{
+.navbar-context-actions {
   padding-bottom: units(4);
   @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
     padding-top: units(4);
@@ -113,8 +118,8 @@
         padding-left: 1.25rem;
       }
     }
-   }
-  + .nav-actions{
+  }
+  + .nav-actions {
     border-top: border(20);
     margin-top: 0;
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
@@ -130,20 +135,20 @@
     margin-left: -12px;
     border-bottom: none;
   }
-  ul{
+  ul {
     margin-left: units(4);
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
       margin-left: 0;
     }
   }
 
-  .nav-link {    
+  .nav-link {
     text-decoration: none;
     color: color($navigation-link-default-color);
     background-color: color($navigation-link-default-background-color);
     display: block;
-    padding:calc(units(4) - 1px) 0 units(4); 
-    span{
+    padding: calc(units(4) - 1px) 0 units(4);
+    span {
       @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
         display: block;
         @include nav-link-border;
@@ -154,24 +159,24 @@
     }
   }
 
-  li{
+  li {
     margin-top: 0;
     padding-left: 0px;
     border-bottom: border(20);
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
       border-bottom: none;
     }
-    &:last-of-type{
+    &:last-of-type {
       border-bottom: none;
     }
-     li li {
-      .overflow-menu{
-        .buttton-overflow-menu{
+    li li {
+      .overflow-menu {
+        .buttton-overflow-menu {
           padding-top: calc(units(305) - 1px);
           padding-bottom: units(305);
         }
       }
-      .nav-link{
+      .nav-link {
         padding-top: calc(units(305) - 1px);
         padding-bottom: units(305);
       }
@@ -181,18 +186,18 @@
   // level 1
   > li {
     & > .overflow-menu {
-      & > button.button-overflow-menu{
+      & > button.button-overflow-menu {
         padding-left: units(4);
       }
-      & > .overflow-menu-inner > .overflow-list{
+      & > .overflow-menu-inner > .overflow-list {
         margin-left: units(6);
-      } 
+      }
     }
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
       border-bottom: 0;
       padding-right: 0;
       padding-left: 0;
-      & > .overflow-menu > button.button-overflow-menu{
+      & > .overflow-menu > button.button-overflow-menu {
         padding-left: 0;
       }
     }
@@ -210,50 +215,57 @@
         @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
           background-color: color($navigation-link-hover-background-color);
           color: color($navigation-link-hover-color);
-          span{
+          span {
             @include nav-hover-border;
           }
         }
       }
-      &:focus{
+      &:focus {
         position: relative;
         z-index: 100;
         background-color: color($navigation-link-focus-background-color);
         color: color($navigation-link-focus-color);
-        span{
+        span {
           @include nav-focus-border;
         }
       }
     }
-    & > .nav-link, & > button, & .button-overflow-menu{
+    & > .nav-link,
+    & > button,
+    & .button-overflow-menu {
       @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
         padding-left: 12px;
         padding-right: 12px;
-        span{        
+        span {
           @include nav-link-border;
           padding-bottom: calc(#{units(3)} + 1px);
         }
-        &:hover span{
+        &:hover span {
           @include nav-hover-border;
         }
-        &:focus span{
+        &:focus span {
           @include nav-focus-border;
         }
       }
     }
   }
-  .active > a, .overflow-menu .overflow-menu-inner .overflow-list > li.active > a{
-    font-weight: font-weight("semibold");
+  .active > a,
+  .overflow-menu .overflow-menu-inner .overflow-list > li.active > a {
+    font-weight: font-weight('semibold');
   }
   .current {
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-      > a, .button-overflow-menu{
+      > a,
+      .button-overflow-menu {
         background-color: color($navigation-link-current-background-color);
         color: color($navigation-link-current-color);
         span {
           @include nav-current-border;
         }
-        &:hover, &:focus, &:hover, &:visited{
+        &:hover,
+        &:focus,
+        &:hover,
+        &:visited {
           background-color: color($navigation-link-current-background-color);
           color: color($navigation-link-current-color);
           span {
@@ -261,13 +273,13 @@
           }
         }
       }
-      .overflow-menu{
-        .button-overflow-menu{
-          font-weight: font-weight("semibold");
+      .overflow-menu {
+        .button-overflow-menu {
+          font-weight: font-weight('semibold');
           color: color($navigation-link-current-color);
           background-color: color($navigation-link-current-background-color);
-          
-          span{
+
+          span {
             @include nav-current-border;
           }
 
@@ -281,26 +293,32 @@
               @include nav-current-border;
             }
           }
-          &:hover{
+          &:hover {
             color: color($navigation-link-current-color);
             background-color: color($navigation-link-current-background-color);
-            span{
+            span {
               @include nav-current-border;
             }
           }
 
-          &[aria-expanded=true] {
-            background-color: color($navigation-overflow-menu-open-background-color-desktop);
+          &[aria-expanded='true'] {
+            background-color: color(
+              $navigation-overflow-menu-open-background-color-desktop
+            );
             color: color($navigation-overflow-menu-open-text-color);
-            
-            span{
+
+            span {
               @include nav-current-border;
             }
 
-            &:hover, &:focus, &:active {
-              background-color: color($navigation-overflow-menu-open-background-color-desktop);
+            &:hover,
+            &:focus,
+            &:active {
+              background-color: color(
+                $navigation-overflow-menu-open-background-color-desktop
+              );
               color: color($navigation-overflow-menu-open-text-color);
-              span{
+              span {
                 @include nav-current-border;
               }
             }
@@ -308,26 +326,27 @@
         }
       }
     }
-    & > a, & > .overflow-menu > .button-overflow-menu{
+    & > a,
+    & > .overflow-menu > .button-overflow-menu {
       color: color($navigation-link-current-color);
-      
+
       @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-        font-weight: font-weight("medium");
+        font-weight: font-weight('medium');
       }
     }
   }
 
   /*region: nav-primary overflow menu */
-  .overflow-menu{
+  .overflow-menu {
     display: block;
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
       display: inline-block;
     }
-    .button-overflow-menu{
+    .button-overflow-menu {
       color: color($navigation-link-default-color);
       display: block;
       font-size: font-size($typography-base-font-size);
-      font-weight: font-weight("normal");
+      font-weight: font-weight('normal');
       line-height: units($typography-base-line-height, 'rem');
       padding-top: calc(units(4) - 1px);
       padding-bottom: units(4);
@@ -335,21 +354,24 @@
       padding-right: units(7);
       white-space: normal;
       width: 100%;
-      
+
       @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-       padding-bottom: 0;
-       width: unset;
-       padding-right: units(305);
-       padding-left: units(305);
+        padding-bottom: 0;
+        width: unset;
+        padding-right: units(305);
+        padding-left: units(305);
       }
-      &[aria-expanded=true]:after, &[aria-expanded=true]:before, &:after, &:before{
+      &[aria-expanded='true']:after,
+      &[aria-expanded='true']:before,
+      &:after,
+      &:before {
         display: none;
       }
-      span{
+      span {
         padding-right: 24px;
         display: block;
       }
-          
+
       &:focus,
       &:active {
         @include focus-outline();
@@ -357,40 +379,48 @@
         z-index: 2;
         position: relative;
       }
-      &:hover{
+      &:hover {
         text-decoration: none;
         color: color($navigation-link-hover-color);
         background-color: transparent;
       }
 
-      &[aria-expanded=false] {
+      &[aria-expanded='false'] {
         @include add-background-svg($navigation-overflow-menu-collapsed-icon);
         background-position: right units(4) top units(4);
         background-size: 24px;
 
         @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-          @include add-background-svg($navigation-overflow-menu-collapsed-icon-desktop);
-          background-position: right 1rem center; 
+          @include add-background-svg(
+            $navigation-overflow-menu-collapsed-icon-desktop
+          );
+          background-position: right 1rem center;
         }
       }
 
-      &[aria-expanded=true] {
+      &[aria-expanded='true'] {
         @include add-background-svg($navigation-overflow-menu-expanded-icon);
         background-position: right units(4) top units(4);
         background-size: 24px;
-        background-color: color($navigation-overflow-menu-open-background-color);
+        background-color: color(
+          $navigation-overflow-menu-open-background-color
+        );
 
         @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-          @include add-background-svg($navigation-overflow-menu-expanded-icon-desktop);
+          @include add-background-svg(
+            $navigation-overflow-menu-expanded-icon-desktop
+          );
           background-position: right 1rem center;
-          background-color: color($navigation-overflow-menu-open-background-color-desktop);
+          background-color: color(
+            $navigation-overflow-menu-open-background-color-desktop
+          );
           color: color($navigation-overflow-menu-open-text-color);
           position: relative;
           z-index: 2;
-          &:before, &:after{
+          &:before,
+          &:after {
             display: none;
           }
-         
         }
       }
     }
@@ -419,46 +449,49 @@
         z-index: 1;
         padding-top: units(3);
         padding-bottom: units(3);
-        background-color: color($navigation-overflow-menu-open-background-color-desktop);
+        background-color: color(
+          $navigation-overflow-menu-open-background-color-desktop
+        );
         top: 100%;
       }
-      
-      a{
-          @include body-copy-text;
-          display: block;
-          text-decoration: none;
-          &:hover, &:visited, &:focus{
-            color: color($navigation-link-default-color);
-            background-color: transparent;
-            @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-              color: color($navigation-overflow-menu-open-text-color);
-              text-decoration: underline;
-            }
-          }
+
+      a {
+        @include body-copy-text;
+        display: block;
+        text-decoration: none;
+        &:hover,
+        &:visited,
+        &:focus {
+          color: color($navigation-link-default-color);
+          background-color: transparent;
           @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-            @include small-text();
             color: color($navigation-overflow-menu-open-text-color);
-            padding: units(3) units(4);
+            text-decoration: underline;
           }
+        }
+        @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
+          @include small-text();
+          color: color($navigation-overflow-menu-open-text-color);
+          padding: units(3) units(4);
+        }
       }
 
-      button:not(.button-overflow-menu){
+      button:not(.button-overflow-menu) {
         @include button-unstyled;
       }
     }
   }
   /*endregion*/
 
-
-  .overflow-menu{
+  .overflow-menu {
     .overflow-menu-inner {
-      .overflow-list{
+      .overflow-list {
         list-style-type: none;
         margin-left: units(4);
         @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
           margin-left: 0;
         }
-        li:before{
+        li:before {
           display: none;
         }
         a {
@@ -471,12 +504,13 @@
             background-color: transparent;
             color: color($navigation-overflow-menu-open-text-color);
             padding: units(3) units(4);
-            &:hover{          
+            &:hover {
               text-decoration: underline;
             }
           }
         }
-        .overflow-list, .overflow-list {
+        .overflow-list,
+        .overflow-list {
           margin-left: units(4);
           li {
             a {
@@ -494,26 +528,26 @@
   }
 }
 
-.nav-secondary{
+.nav-secondary {
   padding: 0 units(4);
   @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
     display: flex;
     align-items: center;
     padding: 0;
   }
-  .nav-actions{
+  .nav-actions {
     padding: 0;
   }
-  + .nav-actions{
+  + .nav-actions {
     padding: 0 units(4) units(4);
     @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
-    padding: 0 0 0 units(4);
+      padding: 0 0 0 units(4);
     }
   }
-  .nav-secondary-heading{
-    font-weight: font-weight("bold");
+  .nav-secondary-heading {
+    font-weight: font-weight('bold');
     margin-bottom: units(1);
-    + ul{
+    + ul {
       @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
         margin-left: units(4);
       }
@@ -521,14 +555,14 @@
   }
 }
 
-.navbar-primary{
+.navbar-primary {
   @include media-breakpoint-up(#{$nav-responsive-breakpoint}) {
     border-bottom: border(10);
   }
 }
 
-.navbar:last-of-type{
-  .nav-actions{
+.navbar:last-of-type {
+  .nav-actions {
     border-bottom: none;
   }
 }

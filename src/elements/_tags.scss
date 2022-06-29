@@ -1,13 +1,13 @@
 // Tags
-.tag{
+.tag {
   appearance: none;
   display: inline-block;
   width: auto;
-  padding:0;
+  padding: 0;
   padding-left: units(3);
-  padding-right:units(3);
-  margin-right:units(3);
-  margin-bottom:units(3);
+  padding-right: units(3);
+  margin-right: units(3);
+  margin-bottom: units(3);
   border-radius: $tag-border-radius;
   border: none;
   font-size: font-size($tag-font-size);
@@ -19,11 +19,11 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &.tag-icon {
-    padding:0;
-    padding-left:units(3);
+    padding: 0;
+    padding-left: units(3);
   }
 
   & + .tag {

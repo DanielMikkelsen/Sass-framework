@@ -1,4 +1,4 @@
-.cookie-container{
+.cookie-container {
   color: color($cookie-message-text-color);
   position: fixed;
   bottom: 0px;
@@ -9,7 +9,7 @@
   margin-left: units(3);
   margin-right: units(3);
 
-  .cookie-message{
+  .cookie-message {
     @include grid-container();
     background-color: color($cookie-message-background-color);
     border: border($cookie-message-border);
@@ -19,22 +19,36 @@
     position: relative;
     overflow: hidden;
 
-    p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       color: color($cookie-message-text-color);
     }
 
-
     @include media-breakpoint-up(xl) {
-      max-width: calc(#{map-get($container-max-widths, xl)} + #{units(7)} + #{units(7)});
+      max-width: calc(
+        #{map-get($container-max-widths, xl)} + #{units(7)} + #{units(7)}
+      );
     }
 
-    .cookie-text, .cookie-actions{
+    .cookie-text,
+    .cookie-actions {
       @include media-breakpoint-up(xl) {
         padding-left: units(7);
         padding-right: units(7);
       }
     }
-    .cookie-actions{
+    .cookie-actions {
       margin-top: units(4);
     }
   }

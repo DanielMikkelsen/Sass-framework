@@ -49,7 +49,7 @@
     margin-top: 0;
     padding-left: 0;
     &::before {
-      content: "" !important;
+      content: '' !important;
       padding-right: 0 !important;
     }
   }
@@ -62,7 +62,7 @@
   > li {
     padding-left: 0;
     &::before {
-      content: "" !important;
+      content: '' !important;
       padding-right: 0 !important;
     }
   }
@@ -83,7 +83,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
 /*
 ----------------------------------------
 responsive-style
@@ -91,35 +90,35 @@ responsive-style
 Sets styles within breakpoints
 ----------------------------------------
 */
-@mixin responsive-style($map, $style){
+@mixin responsive-style($map, $style) {
   @if type-of($map) == 'map' {
-    @each $breakpoint, $value in $map{
-      @if $breakpoint == "default" {
-        @if $style == line-height{
+    @each $breakpoint, $value in $map {
+      @if $breakpoint == 'default' {
+        @if $style == line-height {
           #{$style}: units($value, 'rem');
-        }@else if $style == font-size{
+        } @else if $style == font-size {
           #{$style}: font-size($value);
-        }@else{
+        } @else {
           #{$style}: $value;
         }
-      } @else{
+      } @else {
         @include media-breakpoint-up($breakpoint) {
-          @if $style == line-height{
+          @if $style == line-height {
             #{$style}: units($value, 'rem');
-          }@else if $style == font-size{
+          } @else if $style == font-size {
             #{$style}: font-size($value);
-          }@else{
+          } @else {
             #{$style}: $value;
           }
         }
       }
     }
-  } @else{
-    @if $style == line-height{
+  } @else {
+    @if $style == line-height {
       #{$style}: units($map, 'rem');
-    }@else if $style == font-size{
+    } @else if $style == font-size {
       #{$style}: font-size($map);
-    }@else{
+    } @else {
       #{$style}: $map;
     }
   }

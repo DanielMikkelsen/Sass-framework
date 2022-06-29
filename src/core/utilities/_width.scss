@@ -1,5 +1,5 @@
 //
-// Generates utility classes to control width in percent. 
+// Generates utility classes to control width in percent.
 // Example: .w-percent-100 .w-percent-md-30
 //
 
@@ -18,9 +18,11 @@ $percent-widths: (
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
-    @each $name, $size in $percent-widths { 
+    @each $name, $size in $percent-widths {
       $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-      .w-percent#{$infix}-#{$name}         { width: $size !important;}
+      .w-percent#{$infix}-#{$name} {
+        width: $size !important;
+      }
     }
   }
-} 
+}

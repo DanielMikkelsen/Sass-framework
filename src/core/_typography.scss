@@ -24,7 +24,6 @@ a {
     .disabled {
       background-color: transparent !important;
     }
-
   }
 
   &:focus,
@@ -43,14 +42,14 @@ a {
     cursor: not-allowed !important;
     color: color('disabled') !important;
     opacity: 0.3;
-    &:focus{
+    &:focus {
       outline: none;
       background-color: transparent;
     }
   }
 
-  .background-dark &{
-    &:not(.button){
+  .background-dark & {
+    &:not(.button) {
       color: color('white');
     }
 
@@ -61,7 +60,7 @@ a {
       color: color('disabled-light') !important;
       box-shadow: none !important;
       outline-offset: inherit !important;
-      &:focus{
+      &:focus {
         outline: none;
         background-color: transparent;
       }
@@ -69,11 +68,11 @@ a {
   }
 }
 
-@mixin h1{
+@mixin h1 {
   @include responsive-style($typography-h1-font-size, font-size);
   @include responsive-style($typography-h1-line-height, line-height);
   @include responsive-style($typography-h1-letter-spacing, letter-spacing);
-  font-weight: font-weight("bold");
+  font-weight: font-weight('bold');
   color: color('black');
   text-transform: none;
   word-break: break-word;
@@ -82,7 +81,7 @@ a {
   @include responsive-style($typography-h2-font-size, font-size);
   @include responsive-style($typography-h2-line-height, line-height);
   @include responsive-style($typography-h2-letter-spacing, letter-spacing);
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
   color: color('black');
   text-transform: none;
 }
@@ -90,15 +89,15 @@ a {
   @include responsive-style($typography-h3-font-size, font-size);
   @include responsive-style($typography-h3-line-height, line-height);
   @include responsive-style($typography-h3-letter-spacing, letter-spacing);
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
   color: color('black');
   text-transform: none;
 }
-@mixin h4{
+@mixin h4 {
   @include responsive-style($typography-h4-font-size, font-size);
   @include responsive-style($typography-h4-line-height, line-height);
   @include responsive-style($typography-h4-letter-spacing, letter-spacing);
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
   color: color('black');
   text-transform: none;
 }
@@ -106,7 +105,7 @@ a {
   @include responsive-style($typography-h5-font-size, font-size);
   @include responsive-style($typography-h5-line-height, line-height);
   @include responsive-style($typography-h5-letter-spacing, letter-spacing);
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
   color: color('black');
   text-transform: none;
 }
@@ -115,7 +114,7 @@ a {
   @include responsive-style($typography-h6-font-size, font-size);
   @include responsive-style($typography-h6-line-height, line-height);
   @include responsive-style($typography-h6-letter-spacing, letter-spacing);
-  font-weight: font-weight("medium");
+  font-weight: font-weight('medium');
   color: color('black');
 }
 @mixin body-copy-text {
@@ -145,14 +144,14 @@ a {
 @mixin form-label-text {
   font-size: font-size($typography-form-label-font-size);
   line-height: units($typography-form-label-line-height, 'rem');
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
   color: color($typography-form-label-text-color);
   text-transform: none;
 }
 @mixin small-text {
   font-size: font-size($typography-small-text-font-size);
   line-height: units($typography-small-text-line-height, 'rem');
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
   letter-spacing: $typography-small-text-letter-spacing;
 }
 
@@ -161,160 +160,191 @@ a {
 }
 
 @mixin color-text-negative {
-  color:color($theme-color-text-negative);
+  color: color($theme-color-text-negative);
 }
 
-h1, .h1 {
+h1,
+.h1 {
   @include h1;
 }
-h2, .h2{
+h2,
+.h2 {
   @include h2;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   @include h3;
 }
 
-h4, .h4{
+h4,
+.h4 {
   @include h4;
 }
 
-h5, .h5{
+h5,
+.h5 {
   @include h5;
 }
 
-h6, .h6{
+h6,
+.h6 {
   @include h6;
 }
 
-p, .body-text, .body-copy-text{
+p,
+.body-text,
+.body-copy-text {
   @include body-copy-text;
 }
-figcaption, .figcaption{
+figcaption,
+.figcaption {
   @include caption;
-  p{
+  p {
     @include caption;
   }
 }
-.subheading{
+.subheading {
   @include subheading;
 }
 
 .font-lead {
   font-size: font-size($typography-lead-font-size);
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
   line-height: units($typography-lead-line-height, 'rem');
   max-width: $typography-text-max-width;
   color: color('ink');
   letter-spacing: $typography-lead-letter-spacing;
 }
-.article{
+.article {
   font-size: font-size($typography-article-font-size);
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
   line-height: units($typography-article-line-height, 'rem');
   max-width: $typography-text-max-width;
   color: color('ink');
   letter-spacing: $typography-article-letter-spacing;
 }
-small, .small-text {
+small,
+.small-text {
   @include small-text();
 }
 
 .weight-normal {
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
 }
 
 .weight-semibold {
-  font-weight: font-weight("semibold");
+  font-weight: font-weight('semibold');
 }
 .facit {
   border-bottom: border(10);
   border-bottom-style: double;
   border-bottom-width: 4px;
 }
-strong, b, .bold {
-  font-weight: font-weight("bold");
+strong,
+b,
+.bold {
+  font-weight: font-weight('bold');
 }
 
-.italic, em {
+.italic,
+em {
   font-style: italic;
 }
-
 
 .form-label {
   @include form-label-text;
 }
 
-
-h1:focus, .h1:focus,
-h2:focus, .h2:focus,
-h3:focus, .h3:focus,
-h4:focus, .h4:focus,
-h5:focus, .h5:focus,
-h6:focus, .h6:focus {
+h1:focus,
+.h1:focus,
+h2:focus,
+.h2:focus,
+h3:focus,
+.h3:focus,
+h4:focus,
+.h4:focus,
+h5:focus,
+.h5:focus,
+h6:focus,
+.h6:focus {
   outline: none;
 }
 
-h1, .h1{
+h1,
+.h1 {
   margin-bottom: units(4, 'rem');
   margin-top: 0rem;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   margin-top: units(6, 'rem');
   margin-bottom: units(4, 'rem');
   @include media-breakpoint-up(md) {
     margin-top: units(7, 'rem');
   }
 }
-h3, .h3{
+h3,
+.h3 {
   margin-top: units(6, 'rem');
   margin-bottom: units(4, 'rem');
   @include media-breakpoint-up(md) {
     margin-top: units(7, 'rem');
   }
 }
-h4, .h4{
+h4,
+.h4 {
   margin-top: units(5, 'rem');
-  margin-bottom:  units(4, 'rem');
+  margin-bottom: units(4, 'rem');
 }
-h5, .h5{
-  margin-top: units(5, 'rem');
-  margin-bottom: 0;
-}
-h6, .h6{
+h5,
+.h5 {
   margin-top: units(5, 'rem');
   margin-bottom: 0;
 }
-.font-lead{
+h6,
+.h6 {
   margin-top: units(5, 'rem');
-  margin-bottom:  units(4, 'rem');
+  margin-bottom: 0;
 }
-p, .body-text{
+.font-lead {
+  margin-top: units(5, 'rem');
+  margin-bottom: units(4, 'rem');
+}
+p,
+.body-text {
   margin-top: units(4, 'rem');
   margin-bottom: units(4, 'rem');
 }
-h5, .h5, h6, .h6{
-  & + p, & + ul, & + ol{
+h5,
+.h5,
+h6,
+.h6 {
+  & + p,
+  & + ul,
+  & + ol {
     margin-top: 0; //if next sibling after h5 og h6 is a p-tag, no margin-top on p-tag.
   }
 }
 
 //a function link, does not look like a link
-button.function-link{
+button.function-link {
   background: none;
   padding: 0px;
-  text-decoration: underline
+  text-decoration: underline;
 }
-.function-link{
+.function-link {
   border: none;
   @include body-copy-text;
   cursor: pointer;
   display: inline-block;
-  &:hover, &:visited, &:focus{
+  &:hover,
+  &:visited,
+  &:focus {
     color: color('ink');
   }
-  .icon-svg{
+  .icon-svg {
     margin-right: units(2);
     fill: currentColor;
   }
@@ -324,7 +354,7 @@ button.function-link{
   }
 }
 
-.back-link{
+.back-link {
   border-bottom: border(10);
   color: color('black');
   text-decoration: none;
@@ -336,7 +366,7 @@ button.function-link{
   }
   line-height: 2.4rem;
   padding-left: 14px;
-  &::before{
+  &::before {
     display: block;
     width: 0;
     height: 0;
@@ -346,25 +376,28 @@ button.function-link{
     clip-path: polygon(0% 50%, 100% 100%, 100% 0%);
     border-width: 5px 6px 5px 0;
     border-right-color: inherit;
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     margin: auto;
   }
-  &:active, &:focus, &:hover, &:visited{
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
     color: color('black');
   }
 }
 
-a.bold-link{
-  font-weight: font-weight("semibold");
+a.bold-link {
+  font-weight: font-weight('semibold');
 }
 
-.icon-link{
+.icon-link {
   line-height: units($typography-body-text-line-height, 'rem');
-  .icon-svg{
+  .icon-svg {
     margin-left: units(2);
     width: 1.6rem;
     height: 1.6rem;
@@ -372,14 +405,23 @@ a.bold-link{
   }
 }
 
- //styling for link in heading
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6{
-  a, a:hover, a:visited, a:focus{
+//styling for link in heading
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  a,
+  a:hover,
+  a:visited,
+  a:focus {
     text-decoration: underline;
   }
 
@@ -406,37 +448,45 @@ dfn {
 }
 
 //max-width of 66ch for text
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6{
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   max-width: $typography-text-max-width;
 }
 p,
 ul:not(.accordion):not(.accordion-bordered):not(.nav-primary):not(.inline-list):not(.tabnav):not(.sidenav-list):not(.sidenav-sub_list),
-ol:not(.accordion):not(.accordion-bordered):not(.sidenav-list){
+ol:not(.accordion):not(.accordion-bordered):not(.sidenav-list) {
   max-width: $typography-text-max-width;
 }
-.font-lead{
-  max-width: $typography-text-max-width;
-}
-
-.form-label, .form-hint, .form-error-message{
-  max-width: $typography-text-max-width;
-}
-.form-checkbox+label, .form-radio+label{
-  max-width: $typography-text-max-width;
-}
-a:not(.button){
+.font-lead {
   max-width: $typography-text-max-width;
 }
 
+.form-label,
+.form-hint,
+.form-error-message {
+  max-width: $typography-text-max-width;
+}
+.form-checkbox + label,
+.form-radio + label {
+  max-width: $typography-text-max-width;
+}
+a:not(.button) {
+  max-width: $typography-text-max-width;
+}
 
 .displayheading {
   &-1 {
-    font-weight: font-weight("medium");
+    font-weight: font-weight('medium');
     font-size: font-size($typography-display-1-heading-font-size);
     line-height: units($typography-display-1-heading-line-height, 'rem');
     margin-bottom: 0;
@@ -444,7 +494,7 @@ a:not(.button){
     letter-spacing: $typography-display-1-heading-letter-spacing;
   }
   &-2 {
-    font-weight: font-weight("medium");
+    font-weight: font-weight('medium');
     font-size: font-size($typography-display-2-heading-font-size);
     line-height: units($typography-display-2-heading-line-height, 'rem');
     margin-bottom: 0;
@@ -468,33 +518,47 @@ a:not(.button){
 .background-dark {
   background-color: color('black');
 
-  p, span{
+  p,
+  span {
     color: color('white');
   }
 }
 
 .field-group-title {
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
 
   ~ hr {
     border: 2px solid color('black');
   }
 }
 
-h1, h2, h3, h4, h5, h6, p, legend, strong, b, cite, var, address, dfn{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+legend,
+strong,
+b,
+cite,
+var,
+address,
+dfn {
   text-rendering: optimizeLegibility; //Vigtig — den er vidst default i Webkit nu, men den har effekt på andre engines
   -webkit-font-smoothing: none; //Fikser for tyk typografi i Webkit-baserede browsers)
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: "kern";
-  -webkit-font-feature-settings: "kern";
-  -moz-font-feature-settings: "kern";
-  -moz-font-feature-settings: "kern=1";
+  font-feature-settings: 'kern';
+  -webkit-font-feature-settings: 'kern';
+  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: 'kern=1';
 }
 
-.uppercase{
+.uppercase {
   text-transform: uppercase;
 }
-.lowercase{
+.lowercase {
   text-transform: lowercase;
 }

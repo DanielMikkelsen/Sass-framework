@@ -1,49 +1,49 @@
+//Ul lists
 
- //Ul lists
-
- ul {
-   padding-left: 0;
-   list-style-type: none;
-   color: color($typography-body-text-color);
-   font-size: font-size($typography-body-text-font-size);
-   line-height: units($typography-body-text-line-height, 'rem');
-   > li {
-     margin-top:units(3);
-     list-style-type: none;
-     position: relative;
-     padding-left: units(4);
-     line-height: units($typography-body-text-line-height, 'rem');
-     &::before {
-       content: "\2022";
-       position: absolute;
-       left: 0px;
-       top: -1px;
-       font-size: font-size('lg');
-     }
-   }
- }
-
-.nav-primary {
- li {
-  ul {
-    li {
-      padding-top: 1rem;
-      padding-left: 1.25rem;
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  color: color($typography-body-text-color);
+  font-size: font-size($typography-body-text-font-size);
+  line-height: units($typography-body-text-line-height, 'rem');
+  > li {
+    margin-top: units(3);
+    list-style-type: none;
+    position: relative;
+    padding-left: units(4);
+    line-height: units($typography-body-text-line-height, 'rem');
+    &::before {
+      content: '\2022';
+      position: absolute;
+      left: 0px;
+      top: -1px;
+      font-size: font-size('lg');
     }
   }
- }
+}
+
+.nav-primary {
+  li {
+    ul {
+      li {
+        padding-top: 1rem;
+        padding-left: 1.25rem;
+      }
+    }
+  }
 }
 //Ol lists
 ol {
   padding-left: units(505);
-  li{
+  li {
     margin-top: units(3);
     line-height: units(5, 'rem');
   }
 }
 
-.article{
-  ul > li, ol > li{
+.article {
+  ul > li,
+  ol > li {
     font-size: font-size($typography-article-font-size);
     line-height: units($typography-article-line-height, 'rem');
     letter-spacing: $typography-article-letter-spacing;
@@ -55,25 +55,24 @@ ol {
   @include unstyled-list;
 }
 
-.bordered-list{
+.bordered-list {
   @include unstyled-list;
   border-top: border(20);
-  li{
+  li {
     padding: units(3) 0px;
     border-bottom: border(20);
   }
 }
 
- // No bullet lists
- .nobullet-list {
-   @include nobullet-list;
- }
+// No bullet lists
+.nobullet-list {
+  @include nobullet-list;
+}
 
- // No indententation list
- .noindent-list {
-   @include noindent-list;
- }
-
+// No indententation list
+.noindent-list {
+  @include noindent-list;
+}
 
 .inline-list {
   @include unstyled-list;
@@ -85,7 +84,7 @@ ol {
     }
   }
 
-  li + li{
+  li + li {
     margin-top: units(305);
     @include media-breakpoint-up(md) {
       margin-top: 0;

@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/DanielMikkelsen/Sass-framework/issues"
   },
-  "homepage": "https://github.com/DanielMikkelsen/Sass-framework#readme"
+  "homepage": "https://github.com/DanielMikkelsen/Sass-framework#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
 }

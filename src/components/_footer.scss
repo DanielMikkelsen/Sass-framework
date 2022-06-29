@@ -1,12 +1,21 @@
 footer {
-
-  p, h1, h2, h3, h4, h5, h6 {
-    margin:0;
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
   }
-  .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin:0;
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    margin: 0;
   }
-
 
   //generel for footer
   .footer {
@@ -19,13 +28,27 @@ footer {
     @include media-breakpoint-up(md) {
       padding-bottom: calc(#{units(9)} + #{units(4)});
     }
-    p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       color: color($footer-text-color);
     }
 
     .function-link {
       color: color($footer-text-color);
-      &:hover, &:focus, &:visited{
+      &:hover,
+      &:focus,
+      &:visited {
         color: color($footer-text-color);
       }
     }
@@ -41,8 +64,8 @@ footer {
       }
     }
 
-    .logo{
-      background-image: url($image-path+'/'+$footer-logo);
+    .logo {
+      background-image: url($image-path + '/' + $footer-logo);
       background-size: contain;
       background-repeat: no-repeat;
       display: inline-block;
@@ -51,23 +74,23 @@ footer {
       max-width: 150px;
     }
 
-    ul{
+    ul {
       &:not(:last-child) {
         margin-bottom: units(5);
       }
 
       &.footer-links {
         li {
-          margin-top:units(3);
+          margin-top: units(3);
         }
       }
     }
 
     .inline-list {
-    > li:not(:last-child) {
+      > li:not(:last-child) {
         &:after {
           @include media-breakpoint-up(md) {
-            content: "\00b7" !important;
+            content: '\00b7' !important;
             margin-left: units(3);
             margin-right: units(3);
           }

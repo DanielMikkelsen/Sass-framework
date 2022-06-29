@@ -1,4 +1,4 @@
-body.modal-open{
+body.modal-open {
   overflow: hidden;
 }
 .modal-backdrop {
@@ -23,11 +23,11 @@ body.modal-open{
   bottom: 0;
   z-index: 9999;
 
-  &[aria-hidden="false"] {
+  &[aria-hidden='false'] {
     display: flex;
   }
 
- .modal-content {
+  .modal-content {
     align-self: center;
     max-height: 100%;
     overflow-x: hidden;
@@ -54,13 +54,24 @@ body.modal-open{
       padding-right: 48px;
     }
 
-    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       color: color($modal-header-text-color);
     }
   }
   .modal-title {
     margin: units(5) units(8) units(3) 0;
-    
+
     @include media-breakpoint-up(md) {
       margin: 0 units(8) 0 0;
     }
@@ -73,17 +84,29 @@ body.modal-open{
     @include media-breakpoint-up(md) {
       padding: units(3) units(7) units(3) units(7);
     }
-    & > *:first-child{
+    & > *:first-child {
       margin-top: 0;
     }
 
-    p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       color: color($modal-body-text-color);
     }
   }
 
-  .modal-footer{
-    padding: 0px units(5) units(5) ;
+  .modal-footer {
+    padding: 0px units(5) units(5);
     @include media-breakpoint-up(md) {
       padding: units(3) units(7) units(7) units(7);
     }
@@ -96,8 +119,20 @@ body.modal-open{
       margin-top: units(3);
       margin-right: units(4);
     }
-    
-    p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       color: color($modal-footer-text-color);
     }
   }
@@ -109,11 +144,13 @@ body.modal-open{
     width: inherit;
     color: color($modal-header-close-color);
     @include media-breakpoint-up(md) {
-      top:units(5);
+      top: units(5);
       right: units(6);
     }
 
-    &:hover, &:visited, &:focus{
+    &:hover,
+    &:visited,
+    &:focus {
       color: color($modal-header-close-color);
     }
   }
@@ -122,34 +159,46 @@ body.modal-open{
         Animation Style
     \**************************/
   @keyframes modalfadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes modalfadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 
   @keyframes modalslideIn {
-    from { transform: translateY(15%); }
-    to { transform: translateY(0); }
+    from {
+      transform: translateY(15%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 
   @keyframes modalslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10%); }
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10%);
+    }
   }
 
-
-
-
-  &[aria-hidden="false"] .modal-content {
-    animation: modalslideIn .3s cubic-bezier(0, 0, .2, 1);
+  &[aria-hidden='false'] .modal-content {
+    animation: modalslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
   }
 
-  &[aria-hidden="true"] .modal-content {
-    animation: modalslideOut .3s cubic-bezier(0, 0, .2, 1);
+  &[aria-hidden='true'] .modal-content {
+    animation: modalslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
   }
-
 }

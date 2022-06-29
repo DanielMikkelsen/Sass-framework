@@ -9,7 +9,11 @@ Functions
 // here, before the rest of the system
 // variables are set
 
-$root-font-size: if($theme-respect-user-font-size, 62.5%, $theme-root-font-size);
+$root-font-size: if(
+  $theme-respect-user-font-size,
+  62.5%,
+  $theme-root-font-size
+);
 
 $root-font-size-equiv: if(
   $theme-respect-user-font-size,
@@ -91,9 +95,13 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
   @return $collection;
 }
 
-$system-properties: map-collect($system-border, $system-font-size, $system-font-weight, $system-shadow);
+$system-properties: map-collect(
+  $system-border,
+  $system-font-size,
+  $system-font-weight,
+  $system-shadow
+);
 
-  
 /*
 ----------------------------------------
 map-deep-get()
@@ -124,21 +132,21 @@ Leaves bools as is
 ----------------------------------------
 */
 
-@function smart-quote($value) { 
-    @if type-of($value) == "string" {
-      @return quote($value);
-    }
-  
-    @if type-of($value) == "number" and index(("px", "xl", "xs"), unit($value)) {
-      @return inspect($value);
-    }
-  
-    @if type-of($value) == "color" {
-      @error 'Only use quoted color tokens in FDS functions and mixins. ';
-    }
-  
-    @return $value;
+@function smart-quote($value) {
+  @if type-of($value) == 'string' {
+    @return quote($value);
   }
+
+  @if type-of($value) == 'number' and index(('px', 'xl', 'xs'), unit($value)) {
+    @return inspect($value);
+  }
+
+  @if type-of($value) == 'color' {
+    @error 'Only use quoted color tokens in FDS functions and mixins. ';
+  }
+
+  @return $value;
+}
 
 /*
 ========================================
@@ -158,7 +166,7 @@ to test error states in unit testing
 $_error-output-override: false !default;
 @function fds-error($message, $override: $_error-output-override) {
   @if $override {
-    @return "Error: #{$message}";
+    @return 'Error: #{$message}';
   }
 
   @error "#{$message}";
@@ -173,14 +181,14 @@ Returns a common not-a-token error.
 */
 
 @function error-not-token($token, $type, $valid-token-map: false) {
-    $valid-token-message: if(
-        $valid-token-map,
-        " Valid tokens: #{map-keys($valid-token-map)}",
-        ""
-    );
-    @return fds-error(
-        "'#{$token}' is not a valid FDS #{$type} token.#{$valid-token-message}"
-    );
+  $valid-token-message: if(
+    $valid-token-map,
+    ' Valid tokens: #{map-keys($valid-token-map)}',
+    ''
+  );
+  @return fds-error(
+    "'#{$token}' is not a valid FDS #{$type} token.#{$valid-token-message}"
+  );
 }
 
 /*
@@ -213,17 +221,17 @@ Gets a valid FDS unit
   $value: smart-quote($value);
 
   @if not map-has-key($spacers, $value) {
-      @return error-not-token($value, "spacers", $spacers);
+    @return error-not-token($value, 'spacers', $spacers);
   }
   $result: map-get($spacers, $value);
 
   @if $unit == 'rem' {
     $result: px-to-rem($result);
   }
-  
+
   @return $result;
 }
-  
+
 /*
 ----------------------------------------
 de-list()
@@ -237,7 +245,7 @@ into that single element.
 */
 
 @function de-list($value) {
-  $types: ("list", "arglist");
+  $types: ('list', 'arglist');
 
   @if not index($types, type-of($value)) {
     @return $value;
@@ -268,7 +276,7 @@ of lists.
   }
 
   @each $i in $value {
-    @if type-of($i) == "list" {
+    @if type-of($i) == 'list' {
       @each $ii in $i {
         $output: append($output, $ii, comma);
       }
@@ -305,7 +313,7 @@ variable that is, itself, a list
   //    in the theme colors map:
   //      $color-primary-dark: get-system-color($theme-color-primary.'dark'),
 
-  @if type-of($color-family) == "list" {
+  @if type-of($color-family) == 'list' {
     @if length($color-family) > 2 {
       $color-variant: nth($color-family, 3);
     }
@@ -334,10 +342,10 @@ variable that is, itself, a list
 
   @if $color-variant {
     $output: map-deep-get(
-        $system-colors,
-        $color-family,
-        $color-variant,
-        $color-grade
+      $system-colors,
+      $color-family,
+      $color-variant,
+      $color-grade
     );
 
     @return $output;
@@ -357,82 +365,81 @@ Derive a color from a color shortcode
 */
 
 @function color($value, $flags...) {
-    $value: unpack($value);
-  
-    // Non-token colors may be passed with specific flags
-    @if type-of($value) == color {
-      // override or set-theme will allow any color
-      @if index($flags, override) or index($flags, set-theme) {
-        // override + no-warn will skip warnings
-        @if index($flags, no-warn) {
-          @return $value;
-        }
-  
-        @if $theme-show-compile-warnings {
-          @warn 'Override: `#{$value}` is not a FDS color token.';
-        }
-  
+  $value: unpack($value);
+
+  // Non-token colors may be passed with specific flags
+  @if type-of($value) == color {
+    // override or set-theme will allow any color
+    @if index($flags, override) or index($flags, set-theme) {
+      // override + no-warn will skip warnings
+      @if index($flags, no-warn) {
         @return $value;
       }
-    }
-  
-    // False values may be passed through when setting theme colors
-    @if $value == false {
-      @if index($flags, set-theme) {
-        @return $value;
+
+      @if $theme-show-compile-warnings {
+        @warn 'Override: `#{$value}` is not a FDS color token.';
       }
+
+      @return $value;
     }
-  
-    // Now, any value should be evaluated as a token
-  
-    $value: smart-quote($value);
-    @if map-has-key($system-color-shortcodes, $value) {
-      $our-color: map-get($system-color-shortcodes, $value);
+  }
+
+  // False values may be passed through when setting theme colors
+  @if $value == false {
+    @if index($flags, set-theme) {
+      @return $value;
+    }
+  }
+
+  // Now, any value should be evaluated as a token
+
+  $value: smart-quote($value);
+  @if map-has-key($system-color-shortcodes, $value) {
+    $our-color: map-get($system-color-shortcodes, $value);
+    @if $our-color == false {
+      @error '`#{$value}` is a color that does not exist '
+          + 'or is set to false.';
+    }
+    @return $our-color;
+  }
+
+  $theme-color-shortcodes: ();
+  @each $collection-key, $collection-value in $theme-colors {
+    @each $key, $value in $collection-value {
+      $new-color-key: $collection-key + '-' + $key;
+      $new-color-value: $value;
+      $new-color: (
+        $new-color-key: $new-color-value,
+      );
+
+      $theme-color-shortcodes: map-merge($theme-color-shortcodes, $new-color);
+    }
+  }
+  @if map-has-key($theme-color-shortcodes, $value) {
+    $our-color: map-get($theme-color-shortcodes, $value);
+    @if $our-color == false {
+      @error '`#{$value}` is a color that does not exist '
+          + 'or is set to false.';
+    }
+    @return $our-color;
+  }
+
+  // If we're using the theme flag, $project-color-shortcodes has not yet been set
+  @if not index($flags, set-theme) {
+    @if map-has-key($project-color-shortcodes, $value) {
+      $our-color: (map-get($project-color-shortcodes, $value));
       @if $our-color == false {
         @error '`#{$value}` is a color that does not exist '
-          + 'or is set to false.';
-      }
-      @return $our-color;
-    }
-  
-    $theme-color-shortcodes: ();
-    @each $collection-key, $collection-value in $theme-colors {
-      @each $key, $value in $collection-value {
-        $new-color-key: $collection-key + "-" + $key;
-        $new-color-value: $value;
-        $new-color: (
-          $new-color-key: $new-color-value
-        );
-  
-        $theme-color-shortcodes: map-merge($theme-color-shortcodes, $new-color);
-      }
-    }
-    @if map-has-key($theme-color-shortcodes, $value) {
-      $our-color: map-get($theme-color-shortcodes, $value);
-      @if $our-color == false {
-        @error '`#{$value}` is a color that does not exist '
-          + 'or is set to false.';
-      }
-      @return $our-color;
-    }
-  
-  
-    // If we're using the theme flag, $project-color-shortcodes has not yet been set
-    @if not index($flags, set-theme) {
-      @if map-has-key($project-color-shortcodes, $value) {
-        $our-color: (map-get($project-color-shortcodes, $value));
-        @if $our-color == false {
-          @error '`#{$value}` is a color that does not exist '
             + 'or is set to false.';
-        }
-        @return $our-color;
       }
+      @return $our-color;
     }
-  
-    @error '`#{$value}` is not a valid FDS color token. '
+  }
+
+  @error '`#{$value}` is not a valid FDS color token. '
         + 'See designsystem.dk/design/farver/ '
         + 'for more information.';
-  }
+}
 
 /*
 ----------------------------------------
@@ -443,20 +450,20 @@ Gets a valid FDS border value
 */
 
 @function border($value) {
-    $value: smart-quote($value);
-    
-    $our-standard-values: map-get($system-properties, border);
+  $value: smart-quote($value);
 
-    @if not map-has-key($our-standard-values, $value) {
-        @return error-not-token($value, "border", $our-standard-values);
-    }
-    $border-map: map-get($our-standard-values, $value);
-    $border-width: map-get($border-map, 'width');
-    $border-style: map-get($border-map, 'style');
-    $border-color: color(map-get($border-map, 'color'));
-    @return $border-width $border-style $border-color;
+  $our-standard-values: map-get($system-properties, border);
+
+  @if not map-has-key($our-standard-values, $value) {
+    @return error-not-token($value, 'border', $our-standard-values);
+  }
+  $border-map: map-get($our-standard-values, $value);
+  $border-width: map-get($border-map, 'width');
+  $border-style: map-get($border-map, 'style');
+  $border-color: color(map-get($border-map, 'color'));
+  @return $border-width $border-style $border-color;
 }
-  
+
 /*
 ----------------------------------------
 border-width()
@@ -467,11 +474,11 @@ Gets a valid FDS border width
 
 @function border-width($value) {
   $value: smart-quote($value);
-    
+
   $our-standard-values: map-get($system-properties, border);
 
   @if not map-has-key($our-standard-values, $value) {
-      @return error-not-token($value, "border", $our-standard-values);
+    @return error-not-token($value, 'border', $our-standard-values);
   }
   $border-map: map-get($our-standard-values, $value);
   @return map-get($border-map, 'width');
@@ -487,11 +494,11 @@ Gets a valid FDS border style
 
 @function border-style($value) {
   $value: smart-quote($value);
-    
+
   $our-standard-values: map-get($system-properties, border);
 
   @if not map-has-key($our-standard-values, $value) {
-      @return error-not-token($value, "border", $our-standard-values);
+    @return error-not-token($value, 'border', $our-standard-values);
   }
   $border-map: map-get($our-standard-values, $value);
   @return map-get($border-map, 'style');
@@ -506,11 +513,11 @@ Gets a valid FDS border color
 
 @function border-color($value) {
   $value: smart-quote($value);
-    
+
   $our-standard-values: map-get($system-properties, border);
 
   @if not map-has-key($our-standard-values, $value) {
-      @return error-not-token($value, "border", $our-standard-values);
+    @return error-not-token($value, 'border', $our-standard-values);
   }
   $border-map: map-get($our-standard-values, $value);
   @return color(map-get($border-map, 'color'));
@@ -526,18 +533,18 @@ Gets a valid FDS font-size - not in use?
 
 @function font-size($value) {
   $value: smart-quote($value);
-  
+
   $our-standard-values: map-get($system-properties, font-size);
 
-  @if  map-has-key($our-standard-values, $value) {
+  @if map-has-key($our-standard-values, $value) {
     @return map-get($our-standard-values, $value);
   }
-  
+
   @if map-has-key($project-custom-font-size, $value) {
     @return map-get($project-custom-font-size, $value);
   }
 
-@error '`#{$value}` is not a valid FDS font size token.';
+  @error '`#{$value}` is not a valid FDS font size token.';
 }
 
 /*
@@ -550,15 +557,15 @@ Gets a valid FDS font weight
 
 @function font-weight($value, $error: true) {
   $value: smart-quote($value);
-  
+
   $our-standard-values: map-get($system-properties, font-weight);
 
   @if not map-has-key($our-standard-values, $value) {
-      @return error-not-token($value, "font-weight", $our-standard-values);
+    @return error-not-token($value, 'font-weight', $our-standard-values);
   }
   $our-value: map-get($our-standard-values, $value);
-  @if $error{
-    @if $our-value == false{
+  @if $error {
+    @if $our-value == false {
       @error '`#{$value}` is a font weight that does not exist '
       + 'or is set to false.';
     }
@@ -576,11 +583,11 @@ Gets a valid FDS shadow
 
 @function shadow($value) {
   $value: smart-quote($value);
-    
+
   $our-standard-values: map-get($system-properties, shadow);
 
   @if not map-has-key($our-standard-values, $value) {
-      @return error-not-token($value, "shadow", $our-standard-values);
+    @return error-not-token($value, 'shadow', $our-standard-values);
   }
   $shadow-map: map-get($our-standard-values, $value);
   $shadow-h-offset: map-get($shadow-map, 'h-offset');
@@ -589,5 +596,6 @@ Gets a valid FDS shadow
   $shadow-spread: map-get($shadow-map, 'spread');
   $shadow-color: color(map-get($shadow-map, 'color'));
 
-  @return $shadow-h-offset $shadow-v-offset $shadow-blur $shadow-spread $shadow-color;
+  @return $shadow-h-offset $shadow-v-offset $shadow-blur $shadow-spread
+    $shadow-color;
 }

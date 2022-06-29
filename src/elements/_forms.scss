@@ -5,21 +5,34 @@ fieldset {
   padding: 0;
 }
 
-fieldset ul{
+fieldset ul {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-fieldset + fieldset{
+fieldset + fieldset {
   margin-top: units(5);
 }
 
-legend{
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+legend {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
     margin-bottom: 0px;
   }
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   //Input width with rem
   &.input-width-xxs {
     max-width: 8rem !important;

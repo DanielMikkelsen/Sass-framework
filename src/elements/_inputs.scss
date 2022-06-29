@@ -1,13 +1,13 @@
 @use 'sass:math';
 
-.form-group{
+.form-group {
   margin-top: units(5); //4
-  &:first-child{
+  &:first-child {
     margin-top: 0;
   }
 }
 
-.form-group-radio{
+.form-group-radio {
   margin-top: map-get($spacers, 3);
   position: relative;
 }
@@ -30,7 +30,7 @@
 //** Text input **//
 ////////////////////
 
-.form-input{
+.form-input {
   appearance: none;
   border: border($input-border);
   border-radius: $input-border-radius;
@@ -38,7 +38,8 @@
   display: block;
   font-size: font-size($input-font-size);
   line-height: units($input-line-height, 'rem');
-  padding: calc(8px - #{border-width($input-border)}) calc(16px - #{border-width($input-border)});
+  padding: calc(8px - #{border-width($input-border)})
+    calc(16px - #{border-width($input-border)});
   width: 100%;
   max-width: 32rem;
   margin-top: units(3);
@@ -48,53 +49,57 @@
     height: calc(#{units($input-line-height, 'rem')} + (8px * 2));
   }
 
-  &:focus, &.focus{
+  &:focus,
+  &.focus {
     @include focus();
   }
 }
 
 table {
   .form-input {
-    margin-top:0;
+    margin-top: 0;
   }
 }
-textarea.form-input{
+textarea.form-input {
   height: auto;
 }
-textarea.no-resize{
+textarea.no-resize {
   resize: none;
 }
 
-.form-input-wrapper{
-  display:flex;
-  .form-input{
+.form-input-wrapper {
+  display: flex;
+  .form-input {
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    &:focus{
+    &:focus {
       position: relative;
       z-index: 1;
     }
   }
-  .form-input-prefix + .form-input, &.form-input-wrapper--prefix .form-input{
+  .form-input-prefix + .form-input,
+  &.form-input-wrapper--prefix .form-input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  &.form-input-wrapper--suffix .form-input{
+  &.form-input-wrapper--suffix .form-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  .form-input-prefix, .form-input-suffix {
+  .form-input-prefix,
+  .form-input-suffix {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: font-weight("normal");
+    font-weight: font-weight('normal');
     font-size: font-size($input-font-size);
     line-height: units($input-line-height, 'rem');
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
     min-width: 40px;
-    padding: calc(#{units(3)} - #{border-width($input-border)}) calc(#{units(3)} - #{border-width($input-border)});
+    padding: calc(#{units(3)} - #{border-width($input-border)})
+      calc(#{units(3)} - #{border-width($input-border)});
     margin-top: units(3);
     border: border($input-border);
     background-color: color($input-prefix-suffix-background-color);
@@ -104,7 +109,6 @@ textarea.no-resize{
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    
   }
   .form-input-suffix {
     border-left: 0;
@@ -138,18 +142,20 @@ textarea.no-resize{
   width: 100%;
   margin-top: units(3);
   text-align: left;
-  padding: calc(8px - #{border-width($select-border)}) calc(16px - #{border-width($select-border)});
+  padding: calc(8px - #{border-width($select-border)})
+    calc(16px - #{border-width($select-border)});
   padding-right: 32px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
+
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 color('black');
   }
 
-  &:focus, &.focus{
+  &:focus,
+  &.focus {
     @include focus();
   }
   &::-ms-expand {
@@ -166,12 +172,11 @@ textarea.no-resize{
       font-family: Helvetica, Arial, sans-serif;
     }
   }
-
 }
 
 table {
   .form-select {
-    margin-top:0;
+    margin-top: 0;
   }
 }
 
@@ -179,20 +184,23 @@ table {
 //** Input states **//
 //////////////////////
 
-
 $input-top-bottom-padding-feedback: calc(8px - #{$input-border-width-feedback});
-$input-left-right-padding-feedback: calc(16px - #{$input-border-width-feedback});
+$input-left-right-padding-feedback: calc(
+  16px - #{$input-border-width-feedback}
+);
 
 .form-group.form-error {
-  border-left: $form-group-error-border-width solid color($form-group-error-border-color);
+  border-left: $form-group-error-border-width solid
+    color($form-group-error-border-color);
   padding-left: calc(#{units(4)} - 4px);
 
   .form-input,
   .form-select {
-    border: $input-border-width-feedback solid color($input-border-color-feedback-error);
-    padding: $input-top-bottom-padding-feedback $input-left-right-padding-feedback;
+    border: $input-border-width-feedback solid
+      color($input-border-color-feedback-error);
+    padding: $input-top-bottom-padding-feedback
+      $input-left-right-padding-feedback;
   }
-
 }
 .form-error-message {
   @include form-label-text();
@@ -204,23 +212,27 @@ $input-left-right-padding-feedback: calc(16px - #{$input-border-width-feedback})
 .form-group.form-success {
   .form-input,
   .form-select {
-    border: $input-border-width-feedback solid color($input-border-color-feedback-success);
-    padding: $input-top-bottom-padding-feedback $input-left-right-padding-feedback;
+    border: $input-border-width-feedback solid
+      color($input-border-color-feedback-success);
+    padding: $input-top-bottom-padding-feedback
+      $input-left-right-padding-feedback;
   }
 }
 
-input[type=text]:disabled, textarea:disabled{
+input[type='text']:disabled,
+textarea:disabled {
   background-color: color($input-disabled-background-color);
   color: color($input-disabled-text-color);
   cursor: not-allowed;
 }
-input[readonly][type=text]{
+input[readonly][type='text'] {
   margin-top: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   height: auto;
 }
-input[readonly][type=text], textarea[readonly]{
+input[readonly][type='text'],
+textarea[readonly] {
   background-color: transparent;
   color: color($input-text-color);
   border: none;
@@ -234,11 +246,10 @@ input[readonly][type=text], textarea[readonly]{
 $checkbox-size: units($input-checkbox-radio-small-size);
 $radio-size: units($input-checkbox-radio-small-size);
 $checkbox-size-large: units($input-checkbox-radio-large-size);
-$checkbox-radio-line-height-large: 4.0rem;
+$checkbox-radio-line-height-large: 4rem;
 $radio-size-large: units($input-checkbox-radio-large-size);
 
-
-.form-checkbox{
+.form-checkbox {
   // The actual input element is only visible to screen readers, because
   // all visual styling is done via the label.
   @include sr-only();
@@ -257,7 +268,7 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 .form-checkbox + label,
 .form-radio + label {
   cursor: pointer;
-  font-weight: font-weight("normal");
+  font-weight: font-weight('normal');
   line-height: units($typography-body-text-line-height, 'rem');
   margin-bottom: 0;
   display: inline-block;
@@ -269,7 +280,7 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 }
 
 .form-checkbox + label + .form-hint,
-.form-radio + label + .form-hint{
+.form-radio + label + .form-hint {
   padding-left: calc(#{$checkbox-size} + 8px);
 }
 
@@ -296,22 +307,22 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   padding-bottom: 8px;
   min-height: $checkbox-size-large;
 
-  &:before{
+  &:before {
     height: $checkbox-size-large;
     width: $checkbox-size-large;
   }
 }
 
-.form-checkbox.checkbox-large + label + .form-hint{
+.form-checkbox.checkbox-large + label + .form-hint {
   padding-left: calc(#{$checkbox-size-large} + 8px);
 }
 
 //extra for radio outline
-.form-radio{
+.form-radio {
   height: $radio-size;
   width: $radio-size;
 
-  &.radio-large{
+  &.radio-large {
     height: $radio-size-large;
     width: $radio-size-large;
   }
@@ -321,37 +332,37 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   height: $radio-size;
   width: $radio-size;
 }
-.form-radio.radio-large + label{
+.form-radio.radio-large + label {
   padding-top: 8px;
   padding-left: calc(#{$radio-size-large} + 8px);
   padding-bottom: 8px;
 
-  &:before{
+  &:before {
     height: $radio-size-large;
     width: $radio-size-large;
   }
 }
 
-.form-radio.radio-large + label + .form-hint{
+.form-radio.radio-large + label + .form-hint {
   padding-left: calc(#{$radio-size-large} + 8px);
 }
 //checked checkbox
-.form-checkbox.checkbox-large{
+.form-checkbox.checkbox-large {
   width: $checkbox-size;
   height: $checkbox-size;
 
-  &.checkbox-large{
+  &.checkbox-large {
     width: $checkbox-size-large;
     height: $checkbox-size-large;
   }
 }
 
-.form-checkbox:checked + label{
-  &:before{
+.form-checkbox:checked + label {
+  &:before {
     background-color: color('black');
   }
-  &:after{
-    content: "";
+  &:after {
+    content: '';
     height: 7px;
     width: 12px;
     position: absolute;
@@ -362,12 +373,12 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   }
 }
 //checkmark large
-.form-checkbox.checkbox-large{
+.form-checkbox.checkbox-large {
   width: 22px;
   height: 22px;
 }
-.form-checkbox.checkbox-large:checked + label{
-  &:after{
+.form-checkbox.checkbox-large:checked + label {
+  &:after {
     height: 12px;
     width: 20px;
     left: 6px;
@@ -377,10 +388,10 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 }
 
 //checked radio
-.form-radio:checked + label{
+.form-radio:checked + label {
   position: relative;
-  &:after{
-    content: "";
+  &:after {
+    content: '';
     height: calc(#{$radio-size} - 10px);
     width: calc(#{$radio-size} - 10px);
     background-color: color('black');
@@ -391,9 +402,9 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   }
 }
 //checked radio large
-.form-radio.radio-large:checked + label{
-  &:after{
-    content: "";
+.form-radio.radio-large:checked + label {
+  &:after {
+    content: '';
     height: calc(#{$radio-size-large} - 16px);
     width: calc(#{$radio-size-large} - 16px);
     left: 8px;
@@ -406,7 +417,7 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 .form-radio:disabled + label {
   color: color($input-disabled-text-color);
   cursor: not-allowed;
-  &:before{
+  &:before {
     border-color: color($input-disabled-text-color);
     background-color: color($input-disabled-background-color);
   }
@@ -416,20 +427,19 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 .form-checkbox:checked[disabled] + label:before {
   background-color: color('black');
   border-color: color('black');
-  opacity:0.5;
+  opacity: 0.5;
 }
 
 //Disable checked
 .form-radio:checked[disabled] + label:before {
   background-color: color('black');
   border-color: color('black');
-  opacity:0.5;
+  opacity: 0.5;
 }
-
 
 // checkbox focus
 .form-checkbox:focus + label::before,
-.form-checkbox.focus + label::before{
+.form-checkbox.focus + label::before {
   @include focus();
 }
 .form-radio:focus + label::before,
@@ -438,23 +448,22 @@ $radio-size-large: units($input-checkbox-radio-large-size);
 }
 
 // checkbox mixed
-.form-checkbox[aria-checked="mixed"] + label{
-  &:before{
+.form-checkbox[aria-checked='mixed'] + label {
+  &:before {
     background-color: color('black');
   }
-  &:after{
-    content: "";
+  &:after {
+    content: '';
     height: 2px;
     width: 8px;
     left: 8px;
-    top: 10px;  
+    top: 10px;
     position: absolute;
     box-shadow: -2px 2px 0 0 color('white');
   }
 }
-.form-checkbox.checkbox-large[aria-checked="mixed"] + label{
-  
-  &:after{
+.form-checkbox.checkbox-large[aria-checked='mixed'] + label {
+  &:after {
     width: 12px;
     left: 13px;
     top: 16px;
@@ -462,35 +471,60 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   }
 }
 
-.checkbox-content, .radio-content{
-  padding-left: calc(#{map-get($spacers, $input-checkbox-radio-content-padding-left)} - #{map-get($spacers, $input-checkbox-radio-content-border-width)});
+.checkbox-content,
+.radio-content {
+  padding-left: calc(
+    #{map-get($spacers, $input-checkbox-radio-content-padding-left)} - #{map-get(
+        $spacers,
+        $input-checkbox-radio-content-border-width
+      )}
+  );
   padding-top: map-get($spacers, $input-checkbox-radio-content-padding-top);
   padding-bottom: units(5);
-	border-left: map-get($spacers, $input-checkbox-radio-content-border-width) solid color($input-checkbox-radio-content-border-color);
-  margin-left: math.div((map-get($spacers, $input-checkbox-radio-small-size) - map-get($spacers, $input-checkbox-radio-content-border-width)), 2);
+  border-left: map-get($spacers, $input-checkbox-radio-content-border-width)
+    solid color($input-checkbox-radio-content-border-color);
+  margin-left: math.div(
+    (
+      map-get($spacers, $input-checkbox-radio-small-size) -
+        map-get($spacers, $input-checkbox-radio-content-border-width)
+    ),
+    2
+  );
   margin-top: units(2);
   margin-bottom: units(3);
-  
-  &-large{
-    padding-left: calc(#{map-get($spacers, $input-checkbox-radio-content-large-padding-left)} - #{map-get($spacers, $input-checkbox-radio-content-border-width)} - (#{map-get($spacers, $input-checkbox-radio-content-border-width)} / 2));
-    margin-left: math.div((map-get($spacers, $input-checkbox-radio-large-size) - map-get($spacers, $input-checkbox-radio-content-border-width)), 2);
+
+  &-large {
+    padding-left: calc(
+      #{map-get($spacers, $input-checkbox-radio-content-large-padding-left)} - #{map-get(
+          $spacers,
+          $input-checkbox-radio-content-border-width
+        )} -
+        (#{map-get($spacers, $input-checkbox-radio-content-border-width)} / 2)
+    );
+    margin-left: math.div(
+      (
+        map-get($spacers, $input-checkbox-radio-large-size) -
+          map-get($spacers, $input-checkbox-radio-content-border-width)
+      ),
+      2
+    );
   }
-  &[aria-hidden="true"]{
-    display:none;
+  &[aria-hidden='true'] {
+    display: none;
   }
 }
 
 /////////////////////////
 // Range inputs
 /////////////////////////
-[type=range] {
+[type='range'] {
   appearance: none;
   border: none;
   padding-left: 0;
   width: 100%;
 }
 
-[type=range]::-webkit-slider-runnable-track {
+[type='range']::-webkit-slider-runnable-track {
   background: color($input-range-track-default-background-color);
   border: border($input-range-track-default-border);
   cursor: pointer;
@@ -498,7 +532,7 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   width: 100%;
 }
 
-[type=range]::-moz-range-track {
+[type='range']::-moz-range-track {
   background: color($input-range-track-default-background-color);
   border: border($input-range-track-default-border);
   cursor: pointer;
@@ -506,18 +540,18 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   width: 100%;
 }
 
-[type=range]::-webkit-slider-thumb {
+[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: border($input-range-thumb-default-border);
   height: 2.2rem;
   border-radius: 1.5rem;
   background: color($input-range-thumb-default-background-color);
   cursor: pointer;
-  margin-top: -.65rem;
+  margin-top: -0.65rem;
   width: 2.2rem;
 }
 
-[type=range]::-moz-range-thumb {
+[type='range']::-moz-range-thumb {
   background: color($input-range-thumb-default-background-color);
   border: border($input-range-thumb-default-border);
   border-radius: 1.5rem;
@@ -534,11 +568,11 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   align-items: flex-end;
   label {
     margin-top: 0;
-    font-weight: font-weight("normal");
+    font-weight: font-weight('normal');
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
@@ -551,28 +585,28 @@ $radio-size-large: units($input-checkbox-radio-large-size);
   }
 
   .form-group-day,
-  .form-group-month{
-    width: calc(2px + #{units(4)} + #{units(4)} + 2ch );
+  .form-group-month {
+    width: calc(2px + #{units(4)} + #{units(4)} + 2ch);
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       width: 6.4ex;
     }
   }
 
   .form-group-year {
-    width: calc(2px + #{units(4)} + #{units(4)} + 4ch );
+    width: calc(2px + #{units(4)} + #{units(4)} + 4ch);
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       width: 9ex;
     }
   }
 
-  .button-open-calendar{
+  .button-open-calendar {
     margin-bottom: 8px;
     display: inline-flex;
   }
 }
 
 input[type='number'] {
-  -moz-appearance:textfield !important;
+  -moz-appearance: textfield !important;
 }
 //Below fix bug where date-inputs to number-wheels in chrome.
 input::-webkit-outer-spin-button,
@@ -580,10 +614,10 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none !important;
 }
 
-.form-label + input[type=file]{
+.form-label + input[type='file'] {
   margin-top: units(3);
 }
 
-input[type=file]{
+input[type='file'] {
   display: block;
 }
